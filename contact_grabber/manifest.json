@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+
+  "name": "ContactGrabber",
+  "description": "Contact Grabber",
+  "version": "0.8.0",
+
+  "browser_action": {
+    "default_icon" : "icon48.png",
+    "default_title" : "Contact Grabber"
+  },
+
+  "background": {
+    "scripts": ["jquery.min.js", "options.js", "background.js"],
+    "persistent": true
+  },
+
+  "commands": {
+    "extract-contact": {
+      "suggested_key": {
+        "default": "Alt+Shift+PageDown"
+      },
+      "description": "Extract contact"
+    },
+    "lookup-contact": {
+      "suggested_key": {
+        "default": "Alt+Shift+PageUp"
+      },
+      "description": "Lookup contact"
+    }
+  },
+
+  "options_page": "options.html",
+
+  "icons": {
+    "48" : "icon48.png",
+    "128" : "icon128.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus"
+  ]
+}

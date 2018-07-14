@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head><title>Contact Grabber Options</title></head>
+<style type="text/css">
+    #destination_type_select {
+        margin: 10px;
+    }
+
+    #destination_select_download_csv {
+        margin: 10px;
+    }
+
+    #destination_select_download_vcard {
+        margin: 10px;
+        display: none;
+    }
+
+    #destination_select_website {
+        margin: 10px;
+        display: none;
+    }
+
+    #destination_website_info {
+        -webkit-margin-before: 0;
+    }
+
+    #destination_selected_url, #destination_website_tab {
+        margin-top: 8px;
+    }
+
+    #lookup_select_website {
+        margin: 10px;
+    }
+
+    #lookup_website_info {
+        -webkit-margin-before: 0;
+    }
+
+    #lookup_selected_url, #lookup_website_tab {
+        margin-top: 8px;
+    }
+
+    .description {
+        font-size: 9pt;
+    }
+
+    .shortcut {
+        font-style: italic;
+        font-size: 7pt;
+    }
+
+    .spacer {
+        line-height: 20px;
+    }
+
+    #save {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+<h2>Contact Grabber Options</h2>
+
+<h3 id="destLabel">Destination:</h3>
+<div class="description">Select where to deliver grabbed contact</div>
+<div class="shortcut">Hot Key: Alt+Shift+PageDown</div>
+
+<div id="destination_type_select">
+    <div>
+        <input type='radio' id='destination_type_download_csv' name='destination_type' value='download_csv'
+               checked="checked">
+        Download CSV file
+        </input>
+    </div>
+    <div>
+        <input type='radio' id='destination_type_download_vcard' name='destination_type' value='download_vcard'>
+        Download VCard file
+        </input>
+    </div>
+    <div>
+        <input type='radio' id='destination_type_website' name='destination_type' value='website'>
+        Upload to web site
+        </input>
+    </div>
+</div>
+
+<div id="destination_select_download_csv">
+    <label id='destination_label_csv' for="destination_csv_file">CSV Filename:</label>
+    <input type='text' id='destination_csv_file' name='destination_csv_file' size="30" value="%NAME%.csv"/>
+</div>
+
+<div id="destination_select_download_vcard">
+    <label id='destination_label_vcard' for="destination_vcard_file">VCard Filename:</label>
+    <input type='text' id='destination_vcard_file' name='destination_vcard_file' size="30" value="%NAME%.vcf"/>
+</div>
+
+<div id="destination_select_website">
+    <div id='destination_label_url'>Available Destination URLs:</div>
+    <ul id="destination_website_info">
+        <li>One URL per line</li>
+        <li>First URL is active selection</li>
+        <li>Add optional label at end of each URL after ## (e.g., <i>http://my.domain.com/path?myid=123##My Domain [123]</i>)</li>
+    </ul>
+    <textarea id='destination_url_set' rows="7" cols="120" placeholder="Enter one URL per line">
+    </textarea>
+    <div id='destination_selected_url'>Active Destination URL:</div>
+    <select id="destination_url_selector">
+    </select>
+    <div id='destination_website_tab'>
+        <input type='checkbox' id='destination_website_tab_active' name='destination_website_tab_active' checked="checked">
+        Go to new tab after posting contact
+        </input>
+    </div>
+</div>
+
+<div class="spacer">&nbsp;</div>
+
+<h3 id="lookupLabel">Lookup:</h3>
+<div class="description">Select site to lookup grabbed contact</div>
+<div class="shortcut">Hot Key: Alt+Shift+PageUp</div>
+
+<div id="lookup_select_website">
+    <div id='lookup_label_url'>Available Lookup URLs:</div>
+    <ul id="lookup_website_info">
+        <li>One URL per line</li>
+        <li>First URL is active selection</li>
+        <li>Supply substitution variables of the form %FIELD% (only name, email, phone, and URL fields supported)</li>
+        <li>Add optional label at end of each URL after ## (e.g., <i>http://my.domain.com/path?name=%NAME%##My Domain [by name]</i>)</li>
+    </ul>
+    <textarea id='lookup_url_set' rows="7" cols="120" placeholder="Enter one URL per line">
+    </textarea>
+    <div id='lookup_selected_url'>Active Lookup URL:</div>
+    <select id="lookup_url_selector">
+    </select>
+</div>
+
+<button id="save">Save</button>
+<div id="status"></div>
+
+<script src="jquery.min.js"></script>
+<script src="options.js"></script>
+</body>
+</html>
+
